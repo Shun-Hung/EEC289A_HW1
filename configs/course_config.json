@@ -58,8 +58,8 @@
       0.0
     ],
     "reward_scales": {
-      "action_rate": -0.02,
-      "energy": -0.0015
+      "action_rate": -0.03,
+      "energy": -0.002
     }
   },
   "stage_2": {
