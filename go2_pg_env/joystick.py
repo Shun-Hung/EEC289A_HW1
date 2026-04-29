@@ -549,9 +549,13 @@ class Joystick(go2_base.Go2Env):
             return self._student_stage2_sampling_profile(current_command)
         return self._cmd_min, self._cmd_max, self._cmd_b
 
-    def _student_stage2_sampling_profile(self, current_command: jax.Array) -> tuple[jax.Array, jax.Array, jax.Array]:
-        # Use the goal values provided in the config to expand the robot's range of motion
-        return self._student_stage2_goal_min, self._student_stage2_goal_max, self._student_stage2_goal_b
+    def _student_stage2_sampling_profile(self, current_command):
+        del current_command
+        return (
+            self._student_stage2_goal_min,
+            self._student_stage2_goal_max,
+            self._student_stage2_goal_b,
+        )
 
     def sample_command(self, rng: jax.Array, current_command: jax.Array) -> jax.Array:
         rng, y_rng, w_rng, z_rng = jax.random.split(rng, 4)
